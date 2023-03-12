@@ -1,0 +1,99 @@
+/* Styling for the cards */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #ffffff;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .card button {
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .card button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Styling for the cart and checkout button */
+  h2 {
+    margin-top: 40px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  li button {
+    background-color: #f44336;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  li button:hover {
+    background-color: #c62828;
+  }
+  
+  h2:last-of-type {
+    margin-top: 40px;
+  }
+  
+  button:last-of-type {
+    background-color: #2196f3;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  button:last-of-type:hover {
+    background-color: #0c7cd5;
+  }
+  
