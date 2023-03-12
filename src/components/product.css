@@ -96,4 +96,6 @@
   button:last-of-type:hover {
     background-color: #0c7cd5;
   }
-  
+  .checkOut{
+   text-align: center;
+  }

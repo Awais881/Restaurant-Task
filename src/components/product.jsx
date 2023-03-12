@@ -1,11 +1,35 @@
+import * as React from 'react';
 import { useState } from "react";
 import './product.css'
+import {Button,TextField ,DialogContentText, DialogActions,DialogTitle
+ ,DialogContent,Dialog } from '@mui/material';
 import image1 from '../assets/image1.jpg'
 import image2 from '../assets/image2.jpg'
 import image3 from '../assets/image3.jpg'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 function Carts() {
     const [cart, setCart] = useState([]);
+    const [open, setOpen] = React.useState(false);
 
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+      toast.success('Payment Sucessfully', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })
+    };
     const products = [
       {
         id: 1,
@@ -65,22 +89,70 @@ function Carts() {
             </div>
           ))}
         </div>
-        <h2>Cart</h2>
-        <ul>
+       <center> <h2>Cart</h2></center>
+        <div className='card-container'>
+        
           {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} - ${item.price}{' '}
+            <div key={item.id} className='card'>
+             <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <p>${item.price}</p>
+              {/* {item.name} - ${item.price}{' '} */}
               <button onClick={() => removeItem(item.id)}>Remove</button>
-            </li>
+            </div>
           ))}
-        </ul>
-        <h2>Total: ${calculateTotal()}</h2>
-        <button>Checkout</button>
+        
+        </div>
+        {/* <div className="checkOut"> */}
+        {/* <h2>Total: ${calculateTotal()}</h2> */}
+        {/* <button>Checkout</button> */}
+        {/* </div> */}
       </header>
     </div>
-  
 
-     
+      {/* Payment CheckOut */}
+    <div>
+      <center>
+      <Button variant="outlined"  onClick={handleClickOpen}>
+      CheckOut
+      </Button>
+      </center>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Payment</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+        <h2>Total: ${calculateTotal()}</h2> 
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="standard"
+            required
+          />
+             <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Bank Account "
+            type="number"
+            fullWidth
+            variant="standard"
+            required
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>Order</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+
+    <ToastContainer />
      </>
     );
   }
