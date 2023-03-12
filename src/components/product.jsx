@@ -18,6 +18,7 @@ function Carts() {
     };
   
     const handleClose = () => {
+      setCart([]);
       setOpen(false);
       toast.success('Payment Sucessfully', {
         position: "top-center",
